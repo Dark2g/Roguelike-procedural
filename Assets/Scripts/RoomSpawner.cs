@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Timeline.Actions;
 using UnityEngine;
 
 public class RoomSpawner : MonoBehaviour
@@ -9,8 +6,8 @@ public class RoomSpawner : MonoBehaviour
 
     //1 Necesita puerta abajo
     //2 Necesita puerta arriba
-    //3 Necesita puerta a derecha
-    //4 Necesita puerta a izquierda
+    //3 Necesita puerta a izquierda
+    //4 Necesita puerta a derecha
 
     private RoomTemplates templates;
     private int rnd;
@@ -40,17 +37,18 @@ public class RoomSpawner : MonoBehaviour
 
         else if (openSide == 3)
         {
-            //Derecha
+            //Izquierda
             rnd = Random.Range(0, templates.leftRooms.Length); //Cogemos una sala aleatoria de todas las que tenemos
             Instantiate(templates.leftRooms[rnd], transform.position, templates.leftRooms[rnd].transform.rotation);
         }
 
         else if (openSide == 4)
         {
-            //Izquierda
+            //Derecha
             rnd = Random.Range(0, templates.rightRooms.Length); //Cogemos una sala aleatoria de todas las que tenemos
             Instantiate(templates.rightRooms[rnd], transform.position, templates.rightRooms[rnd].transform.rotation);
         }
+        spawned = true;
     }
 
     //Método para no instanciar dos rooms en el mismo sitio utilizando colliders
@@ -63,8 +61,8 @@ public class RoomSpawner : MonoBehaviour
                 Instantiate(templates.closedRoom, transform.position, Quaternion.identity);
                 Destroy(gameObject);
             }
-            spawned = true;
         }
+        spawned = true;
     }
 
 }

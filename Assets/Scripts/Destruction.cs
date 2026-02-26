@@ -4,15 +4,8 @@ using UnityEngine;
 
 public class Destruction : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    void OnTriggerEnter(Collider other)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Destroy(other.gameObject);
     }
 }
