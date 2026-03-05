@@ -21,34 +21,37 @@ public class RoomSpawner : MonoBehaviour
 
     private void Spawn()
     {
-        if (openSide == 1)
+        if (spawned == false)
         {
-            //Abajo
-            rnd = Random.Range(0, templates.bottomRooms.Length); //Cogemos una sala aleatoria de todas las que tenemos
-            Instantiate(templates.bottomRooms[rnd], transform.position, templates.bottomRooms[rnd].transform.rotation);
-        }
+            if (openSide == 1)
+            {
+                //Abajo
+                rnd = Random.Range(0, templates.bottomRooms.Length); //Cogemos una sala aleatoria de todas las que tenemos
+                Instantiate(templates.bottomRooms[rnd], transform.position, templates.bottomRooms[rnd].transform.rotation);
+            }
 
-        else if (openSide == 2)
-        {
-            //Arriba
-            rnd = Random.Range(0, templates.topRooms.Length); //Cogemos una sala aleatoria de todas las que tenemos
-            Instantiate(templates.topRooms[rnd], transform.position, templates.topRooms[rnd].transform.rotation);
-        }
+            else if (openSide == 2)
+            {
+                //Arriba
+                rnd = Random.Range(0, templates.topRooms.Length); //Cogemos una sala aleatoria de todas las que tenemos
+                Instantiate(templates.topRooms[rnd], transform.position, templates.topRooms[rnd].transform.rotation);
+            }
 
-        else if (openSide == 3)
-        {
-            //Izquierda
-            rnd = Random.Range(0, templates.leftRooms.Length); //Cogemos una sala aleatoria de todas las que tenemos
-            Instantiate(templates.leftRooms[rnd], transform.position, templates.leftRooms[rnd].transform.rotation);
-        }
+            else if (openSide == 3)
+            {
+                //Izquierda
+                rnd = Random.Range(0, templates.leftRooms.Length); //Cogemos una sala aleatoria de todas las que tenemos
+                Instantiate(templates.leftRooms[rnd], transform.position, templates.leftRooms[rnd].transform.rotation);
+            }
 
-        else if (openSide == 4)
-        {
-            //Derecha
-            rnd = Random.Range(0, templates.rightRooms.Length); //Cogemos una sala aleatoria de todas las que tenemos
-            Instantiate(templates.rightRooms[rnd], transform.position, templates.rightRooms[rnd].transform.rotation);
+            else if (openSide == 4)
+            {
+                //Derecha
+                rnd = Random.Range(0, templates.rightRooms.Length); //Cogemos una sala aleatoria de todas las que tenemos
+                Instantiate(templates.rightRooms[rnd], transform.position, templates.rightRooms[rnd].transform.rotation);
+            }
+            spawned = true;
         }
-        spawned = true;
     }
 
     //Método para no instanciar dos rooms en el mismo sitio utilizando colliders
@@ -58,11 +61,11 @@ public class RoomSpawner : MonoBehaviour
         {
             if (other.GetComponent<RoomSpawner>().spawned == false && spawned == false)
             {
-                Instantiate(templates.closedRoom, transform.position, Quaternion.identity);
+                Instantiate(templates.closedRoom, transform.position, templates.closedRoom.transform.rotation);
                 Destroy(gameObject);
             }
+            spawned = true;
         }
-        spawned = true;
     }
 
 }
