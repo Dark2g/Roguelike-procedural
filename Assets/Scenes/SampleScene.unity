@@ -370,6 +370,14 @@ MonoBehaviour:
   - {fileID: 3944280103253860344, guid: 00815252c9279394b9089b80019739e4, type: 3}
   closedRoom: {fileID: 3832450360405916817, guid: 392b0dc64d282954d9152c2b51b7161b, type: 3}
   rooms: []
+  roomTypes:
+  - roomType: {fileID: 11400000, guid: a35e595df515d3e4f8aaae6c4037c094, type: 2}
+    weight: 5
+  - roomType: {fileID: 11400000, guid: c0a1e50baed059345a6c6729546b0025, type: 2}
+    weight: 3
+  - roomType: {fileID: 11400000, guid: d4ad3fad7b11a3c46a4c24818973cd32, type: 2}
+    weight: 2
+  bossRoomType: {fileID: 11400000, guid: d21ed60973efa794e9f57dfe74d622aa, type: 2}
 --- !u!1001 &7962657476027391290
 PrefabInstance:
   m_ObjectHideFlags: 0
